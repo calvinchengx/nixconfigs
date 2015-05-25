@@ -35,7 +35,7 @@
     tmux
     tree
     silver-searcher
-    vim
+    vim_configurable
     gitAndTools.gitFull
     mercurialFull
     python
