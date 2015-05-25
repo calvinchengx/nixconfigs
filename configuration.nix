@@ -17,7 +17,7 @@
   boot.loader.grub.device = "/dev/sda";
 
   # networking.hostName = "nixos"; # Define your hostname.
-  networking.hostId = "0a517779";
+  networking.hostId = "6ea76719";
   # networking.wireless.enable = true;  # Enables wireless.
 
   # Select internationalisation properties.
@@ -40,6 +40,7 @@
     mercurialFull
     python
     nox
+    kde4.kdiff3
     vimPlugins.YouCompleteMe
     vimPlugins.gitgutter
     (import ./my-hello.nix)
