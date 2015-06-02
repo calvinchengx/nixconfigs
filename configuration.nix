@@ -43,6 +43,7 @@
     kde4.kdiff3
     vimPlugins.YouCompleteMe
     vimPlugins.gitgutter
+    nix-repl
     (import ./my-hello.nix)
   ];
 
