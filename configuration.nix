@@ -78,6 +78,8 @@
     postgresql = {
         enable = true;
         package = pkgs.postgresql94;
+        # create postgres user with
+        # createuser -s -r postgres
         authentication = pkgs.lib.mkOverride 10 ''
             local all all              trust
             host  all all 127.0.0.1/32 md5
