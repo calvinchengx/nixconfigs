@@ -71,10 +71,17 @@
   ];
 
   # List services that you want to enable:
+  services = {
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+    openssh.enable = true;
 
+    postgresql = {
+        enable = true;
+        package = pkgs.postgresql94;
+
+    };
+
+  };
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
