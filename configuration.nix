@@ -40,10 +40,33 @@
     mercurialFull
     python
     nox
+    nix-repl
     kde4.kdiff3
     vimPlugins.YouCompleteMe
     vimPlugins.gitgutter
-    nix-repl
+
+    # Haskell development in vim
+    vimPlugins.vimproc
+    vimPlugins.hdevtools
+    vimPlugins.ghc-mod-vim
+
+    # needed for vim-hdevtools
+    haskellPackages.hdevtools
+
+    # needed for compiling vimproc's shared library
+    gnutar
+    gnumake
+    gzip
+    gcc
+    binutils
+    coreutils
+    gawk
+    gnused
+    gnugrep
+    patchelf
+    findutils
+
+    # Example on how to add in my own package
     (import ./my-hello.nix)
   ];
 
