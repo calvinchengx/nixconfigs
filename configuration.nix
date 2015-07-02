@@ -16,9 +16,11 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda";
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   networking.hostId = "6ea76719";
   # networking.wireless.enable = true;  # Enables wireless.
+  networking.firewall.allowedTCPPorts = [ 3333 3000 ];
+  networking.firewall.allowPing = true;
 
   # Select internationalisation properties.
   i18n = {
@@ -27,6 +29,8 @@
     defaultLocale = "en_US.UTF-8";
   };
 
+  nix.binaryCaches = [ http://cache.nixos.org http://hydra.nixos.org ];
+
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
   environment.systemPackages = with pkgs; [
@@ -34,6 +38,7 @@
     htop
     tmux
     tree
+    colordiff
     silver-searcher
     vim_configurable
     gitAndTools.gitFull
@@ -47,11 +52,16 @@
 
     # Haskell development in vim
     vimPlugins.vimproc
-    vimPlugins.hdevtools
+    vimPlugins.vim-hdevtools
     vimPlugins.ghc-mod-vim
 
     # needed for vim-hdevtools
+    haskellPackages.ghc
+    /*haskellPackages.ghc-mod*/
+    haskellPackages.cabal-install
+    haskellPackages.cabal2nix
     haskellPackages.hdevtools
+    haskellPackages.yesod-bin
 
     # needed for compiling vimproc's shared library
     gnutar
