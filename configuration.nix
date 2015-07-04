@@ -19,7 +19,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.hostId = "6ea76719";
   # networking.wireless.enable = true;  # Enables wireless.
-  networking.firewall.allowedTCPPorts = [ 3333 3000 ];
+  networking.firewall.allowedTCPPorts = [ 3333 3000 8300 8400 ];
   networking.firewall.allowPing = true;
 
   # Select internationalisation properties.
@@ -29,7 +29,7 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  nix.binaryCaches = [ http://cache.nixos.org http://hydra.nixos.org ];
+  nix.binaryCaches = [ http://cache.nixos.org ];
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -84,6 +84,14 @@
   services = {
 
     openssh.enable = true;
+
+    consul = {
+      enable = true;
+      extraConfig = {
+        server = true;
+        advertise_addr = "127.0.0.1";
+      };
+    };
 
     postgresql = {
         enable = true;
