@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./nixpkgs/nixos/modules/services/databases/rethinkdb.nix
     ];
 
   # Use the GRUB 2 boot loader.
@@ -19,7 +20,7 @@
   networking.hostName = "nixos"; # Define your hostname.
   networking.hostId = "6ea76719";
   # networking.wireless.enable = true;  # Enables wireless.
-  networking.firewall.allowedTCPPorts = [ 3333 3000 8300 8400 ];
+  networking.firewall.allowedTCPPorts = [ 3333 3000 8300 8400 8080 ];
   networking.firewall.allowPing = true;
 
   # Select internationalisation properties.
@@ -51,7 +52,7 @@
     vimPlugins.gitgutter
 
     # Haskell development in vim
-    vimPlugins.vimproc
+    vimPlugins.vimproc-vim
     vimPlugins.vim-hdevtools
     vimPlugins.ghc-mod-vim
 
@@ -91,6 +92,10 @@
         server = true;
         advertise_addr = "127.0.0.1";
       };
+    };
+
+    rethinkdb = {
+      enable = true;
     };
 
     postgresql = {
