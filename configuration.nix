@@ -79,7 +79,7 @@
 
     # Example on how to add in my own package
     (import ./my-hello.nix)
-    (import ./haskell/ghc-mod/default.nix {})
+    (import ./haskell/ghc-mod {})
   ];
 
   # List services that you want to enable:
