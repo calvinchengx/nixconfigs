@@ -64,6 +64,10 @@
     haskellPackages.hdevtools
     haskellPackages.yesod-bin
 
+    # Python packages I use often
+    pythonPackages.python
+    pythonPackages.ipython
+
     # needed for compiling vimproc's shared library
     gnutar
     gnumake
@@ -75,11 +79,10 @@
     gnused
     gnugrep
     patchelf
-    findutils
 
     # Example on how to add in my own package
     (import ./my-hello.nix)
-    (import ./haskell/ghc-mod {})
+    /*(import ./haskell/ghc-mod {})*/
   ];
 
   # List services that you want to enable:
